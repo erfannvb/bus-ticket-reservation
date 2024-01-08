@@ -12,6 +12,7 @@ import nvb.dev.busticketreservation.repository.UserRepository;
 import nvb.dev.busticketreservation.service.UserService;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository> implements UserService {
@@ -49,5 +50,10 @@ public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository>
             e.getStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public Optional<User> findUserByUsernameAndPassword(String username, String password) {
+        return repository.findUserByUsernameAndPassword(username, password);
     }
 }
