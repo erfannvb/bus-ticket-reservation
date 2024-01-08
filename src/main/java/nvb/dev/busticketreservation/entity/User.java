@@ -40,8 +40,6 @@ public class User extends BaseEntity<Long> {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @NotNull(message = "firstName cannot be null")
-    @NotEmpty(message = "firstName cannot be empty")
     @Column(name = "gender", nullable = false)
     @Enumerated(EnumType.STRING)
     private Gender gender;
