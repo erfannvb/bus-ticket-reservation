@@ -7,7 +7,7 @@
     <title>Main Page</title>
     <jsp:include page="components/common_css_js.jsp"/>
 </head>
-<body>
+<body class="index-body">
 
 <jsp:include page="components/navbar.jsp"/>
 
