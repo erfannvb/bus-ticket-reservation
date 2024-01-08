@@ -10,6 +10,7 @@ import lombok.Setter;
 import nvb.dev.busticketreservation.base.entity.BaseEntity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -45,8 +46,7 @@ public class Ticket extends BaseEntity<Long> {
     @NotNull(message = "moveTime cannot be null")
     @NotEmpty(message = "moveTime cannot be empty")
     @Column(name = "move_time", nullable = false)
-    @Temporal(TemporalType.TIME)
-    private LocalDate moveTime;
+    private LocalDateTime moveTime;
 
     @NotNull(message = "travelId cannot be null")
     @NotEmpty(message = "travelId cannot be empty")
@@ -57,7 +57,7 @@ public class Ticket extends BaseEntity<Long> {
     private Set<User> userSet = new HashSet<>();
 
     public Ticket(String ticketOwner, String start, String destination,
-                  LocalDate moveDate, LocalDate moveTime, UUID travelId) {
+                  LocalDate moveDate, LocalDateTime moveTime, UUID travelId) {
         this.ticketOwner = ticketOwner;
         this.start = start;
         this.destination = destination;
