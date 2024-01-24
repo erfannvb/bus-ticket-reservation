@@ -44,10 +44,7 @@ public class User extends BaseEntity<Long> {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "user_ticket",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "ticket_id", referencedColumnName = "id"))
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Ticket> ticketSet = new HashSet<>();
 
     public User(String firstName, String lastName, String username, String password, Gender gender) {

@@ -27,6 +27,7 @@ public class Ticket extends BaseEntity<Long> {
     @NotEmpty(message = "ticketOwner cannot be empty")
     @Column(name = "ticket_owner", nullable = false)
     private String ticketOwner;
+
     @NotNull(message = "start cannot be null")
     @NotEmpty(message = "start cannot be empty")
     @Column(name = "start", nullable = false)
@@ -53,8 +54,9 @@ public class Ticket extends BaseEntity<Long> {
     @Column(name = "travel_id", nullable = false)
     private UUID travelId;
 
-    @ManyToMany(mappedBy = "ticketSet")
-    private Set<User> userSet = new HashSet<>();
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     public Ticket(String ticketOwner, String start, String destination,
                   LocalDate moveDate, LocalDateTime moveTime, UUID travelId) {
