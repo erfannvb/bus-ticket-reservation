@@ -3,10 +3,7 @@ package nvb.dev.busticketreservation.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import nvb.dev.busticketreservation.base.entity.BaseEntity;
 
 import java.util.HashSet;
@@ -18,6 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity<Long> {
 
     @NotNull(message = "firstName cannot be null")

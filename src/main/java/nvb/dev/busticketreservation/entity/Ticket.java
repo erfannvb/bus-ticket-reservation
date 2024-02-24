@@ -3,10 +3,7 @@ package nvb.dev.busticketreservation.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import nvb.dev.busticketreservation.base.entity.BaseEntity;
 
 import java.time.LocalDate;
@@ -19,6 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode(callSuper = true)
 public class Ticket extends BaseEntity<Long> {
 
     @NotNull(message = "ticketOwner cannot be null")
@@ -36,14 +34,10 @@ public class Ticket extends BaseEntity<Long> {
     @Column(name = "destination", nullable = false)
     private String destination;
 
-    @NotNull(message = "moveDate cannot be null")
-    @NotEmpty(message = "moveDate cannot be empty")
     @Column(name = "move_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private LocalDate moveDate;
 
-    @NotNull(message = "moveTime cannot be null")
-    @NotEmpty(message = "moveTime cannot be empty")
     @Column(name = "move_time", nullable = false)
     private LocalDateTime moveTime;
 
