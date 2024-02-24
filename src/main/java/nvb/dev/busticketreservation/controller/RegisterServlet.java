@@ -41,6 +41,9 @@ public class RegisterServlet extends HttpServlet {
                 userService.save(user);
                 httpSession.setAttribute("message", username + " registered successfully!");
                 resp.sendRedirect("/register.jsp");
+            } else {
+                httpSession.setAttribute("error", "Something went wrong! Try again.");
+                resp.sendRedirect("/register.jsp");
             }
 
         } catch (Exception e) {
