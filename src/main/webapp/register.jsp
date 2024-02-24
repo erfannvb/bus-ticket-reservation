@@ -7,7 +7,7 @@
     <title>Registration Form</title>
     <jsp:include page="components/common_css_js.jsp"/>
 </head>
-<body style="background-image: linear-gradient(to right, #7762ca, #6078d6, #4e8adb, #4b9bdb, #58a9d8);">
+<body style="background-color: darkgrey">
 
 <jsp:include page="components/navbar.jsp"/>
 
