@@ -46,7 +46,7 @@ public class RegisterFilter implements Filter {
         }
 
         if (usernameExists) {
-            httpSession.setAttribute("error", "User with this username exists!");
+            httpSession.setAttribute("error", "User with this username already exists!");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
             dispatcher.include(request, response);
         } else {
