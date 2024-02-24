@@ -117,3 +117,5 @@ x
 Hsrc/main/java/nvb/dev/busticketreservation/controller/LogoutServlet.java,d\d\ddb4341f468c4fd15d21a8b7de65d1d97560760a
 M
 src/main/webapp/css/style.css,2\c\2c1f525046eaa5ad3e39cc3d3b2f4c4fab4ff318
+Q
+!src/main/webapp/css/home-page.css,0\9\090ffe595c25222e57e7824b2c0834df73664676

@@ -12,6 +12,19 @@
     height: 100vh;
 }
 
+.main a {
+    text-decoration-line: none;
+}
+
+.main .card {
+    border: 1px solid black;
+}
+
+.main .card-body:hover {
+    background: #e2e2e2;
+    cursor: pointer;
+}
+
 #signUpLink, #registerLink {
     text-decoration-line: none;
 }
