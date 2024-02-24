@@ -23,6 +23,14 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<Long, User> implement
     }
 
     @Override
+    public Optional<User> findUserByUsername(String username) {
+        String hql = "from User where username =: username";
+        TypedQuery<User> userTypedQuery = entityManager.createQuery(hql, User.class);
+        userTypedQuery.setParameter("username", username);
+        return Optional.ofNullable(userTypedQuery.getSingleResult());
+    }
+
+    @Override
     public Optional<User> findUserByUsernameAndPassword(String username, String password) {
         String hql = "from User where username =: username and password =: password";
         TypedQuery<User> userTypedQuery = entityManager.createQuery(hql, User.class);

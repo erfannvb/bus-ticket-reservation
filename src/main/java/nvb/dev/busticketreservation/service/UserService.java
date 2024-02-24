@@ -9,6 +9,8 @@ public interface UserService extends BaseService<Long, User> {
 
     boolean validate(User user);
 
+    Optional<User> findUserByUsername(String username);
+
     Optional<User> findUserByUsernameAndPassword(String username, String password);
 
 }
