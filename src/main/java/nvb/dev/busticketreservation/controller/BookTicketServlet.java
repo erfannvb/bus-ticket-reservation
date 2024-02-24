@@ -72,7 +72,6 @@ public class BookTicketServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
-            // Handle exceptions
             httpSession.setAttribute("error", "An error occurred while processing your request.");
             req.getRequestDispatcher(BOOK_TICKET_URL).include(req, resp);
         }
