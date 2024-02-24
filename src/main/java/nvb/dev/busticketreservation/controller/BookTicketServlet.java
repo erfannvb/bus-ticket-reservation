@@ -23,9 +23,12 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Optional;
 
 @WebServlet(name = "BookTicketServlet", urlPatterns = "/bookTicket")
 public class BookTicketServlet extends HttpServlet {
+
+    private static final String BOOK_TICKET_URL = "/bookTicket.jsp";
 
     private final EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 
@@ -38,38 +41,40 @@ public class BookTicketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession httpSession = req.getSession();
+
         try {
-            // Retrieve ticket information from request parameters
+
             String ticketOwner = req.getParameter("ticketOwner");
             String start = req.getParameter("start");
             String destination = req.getParameter("destination");
             LocalDate moveDate = LocalDate.parse(req.getParameter("moveDate"));
-            LocalTime moveTime = LocalTime.parse(req.getParameter("moveTime")); // Change to LocalTime
+            LocalTime moveTime = LocalTime.parse(req.getParameter("moveTime"));
 
-            // Combine moveDate and moveTime to create LocalDateTime
             LocalDateTime moveDateTime = LocalDateTime.of(moveDate, moveTime);
 
-            // Retrieve the user from the session
-            User currentUser = (User) req.getSession().getAttribute("currentUser");
+            String username = ((User) httpSession.getAttribute("currentUser")).getUsername();
 
-            // Reattach the user entity to the persistence context
-            currentUser = entityManager.merge(currentUser);
+            Optional<User> userOptional = userService.findUserByUsername(username);
+            if (userOptional.isPresent()) {
+                User currentUser = userOptional.get();
 
-            // Create a new Ticket object
-            Ticket ticket = new Ticket(ticketOwner, start, destination, moveDate, moveDateTime);
+                Ticket ticket = new Ticket(ticketOwner, start, destination, moveDate, moveDateTime);
+                ticket.setUser(currentUser);
 
-            // Set the user for the ticket
-            ticket.setUser(currentUser);
+                ticketService.save(ticket);
 
-            // Save the ticket using TicketService
-            ticketService.save(ticket);
+                httpSession.setAttribute("message", "Ticket Booked Successfully!");
+                resp.sendRedirect(BOOK_TICKET_URL);
+            } else {
+                httpSession.setAttribute("error", "Something went wrong.");
+                req.getRequestDispatcher(BOOK_TICKET_URL).include(req, resp);
+            }
 
-            // Redirect the user to a success page or display a success message
-            resp.sendRedirect("/bookTicket.jsp"); // Replace "success.jsp" with your actual success page
         } catch (Exception e) {
             // Handle exceptions
-            req.setAttribute("errorMessage", "An error occurred while processing your request.");
-            req.getRequestDispatcher("/error.jsp").forward(req, resp); // Forward to an error page
+            httpSession.setAttribute("error", "An error occurred while processing your request.");
+            req.getRequestDispatcher(BOOK_TICKET_URL).include(req, resp);
         }
 
     }
