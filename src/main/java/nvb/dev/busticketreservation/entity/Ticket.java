@@ -11,8 +11,6 @@ import nvb.dev.busticketreservation.base.entity.BaseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -51,20 +49,20 @@ public class Ticket extends BaseEntity<Long> {
 
     @NotNull(message = "travelId cannot be null")
     @NotEmpty(message = "travelId cannot be empty")
-    @Column(name = "travel_id", nullable = false)
-    private UUID travelId;
+    @Column(name = "travel_id", nullable = false, unique = true)
+    private String travelId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     public Ticket(String ticketOwner, String start, String destination,
-                  LocalDate moveDate, LocalDateTime moveTime, UUID travelId) {
+                  LocalDate moveDate, LocalDateTime moveTime) {
         this.ticketOwner = ticketOwner;
         this.start = start;
         this.destination = destination;
         this.moveDate = moveDate;
         this.moveTime = moveTime;
-        this.travelId = travelId;
+        this.travelId = UUID.randomUUID().toString();
     }
 }
