@@ -25,10 +25,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Optional;
 
-@WebServlet(name = "BookTicketServlet", urlPatterns = "/bookTicket")
-public class BookTicketServlet extends HttpServlet {
+@WebServlet(name = "BookTicketServlet", urlPatterns = "/addTicket")
+public class AddTicketServlet extends HttpServlet {
 
-    private static final String BOOK_TICKET_URL = "/bookTicket.jsp";
+    private static final String ADD_TICKET_URL = "/addTicket.jsp";
 
     private final EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 
@@ -64,16 +64,16 @@ public class BookTicketServlet extends HttpServlet {
 
                 ticketService.save(ticket);
 
-                httpSession.setAttribute("message", "Ticket Booked Successfully!");
-                resp.sendRedirect(BOOK_TICKET_URL);
+                httpSession.setAttribute("message", "Ticket Added Successfully!");
+                resp.sendRedirect(ADD_TICKET_URL);
             } else {
                 httpSession.setAttribute("error", "Something went wrong.");
-                req.getRequestDispatcher(BOOK_TICKET_URL).include(req, resp);
+                req.getRequestDispatcher(ADD_TICKET_URL).include(req, resp);
             }
 
         } catch (Exception e) {
             httpSession.setAttribute("error", "An error occurred while processing your request.");
-            req.getRequestDispatcher(BOOK_TICKET_URL).include(req, resp);
+            req.getRequestDispatcher(ADD_TICKET_URL).include(req, resp);
         }
 
     }
