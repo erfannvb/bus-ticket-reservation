@@ -1,3 +1,14 @@
+<%@ page import="nvb.dev.busticketreservation.entity.User" %>
+<%
+
+    User currentUser = (User) session.getAttribute("currentUser");
+    if (currentUser == null) {
+        session.setAttribute("error", "You are not logged-in! Login first.");
+        response.sendRedirect("/login.jsp");
+        return;
+    }
+
+%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +30,6 @@
                 <p class="lead my-4">
                     Effortless bus ticket booking: Find, select, and reserve instantly!
                 </p>
-                <a class="btn btn-success btn-lg" href="bookTicket.jsp">Book a Ticket</a>
                 <a class="btn btn-primary btn-lg" href="searchTicket.jsp">Search Ticket</a>
             </div>
             <a href="#">
