@@ -1,11 +1,3 @@
-<%@ page import="nvb.dev.busticketreservation.repository.UserRepository" %>
-<%@ page import="nvb.dev.busticketreservation.repository.impl.UserRepositoryImpl" %>
-<%@ page import="jakarta.persistence.EntityManager" %>
-<%@ page import="nvb.dev.busticketreservation.base.repository.util.HibernateUtil" %>
-<%@ page import="nvb.dev.busticketreservation.service.UserService" %>
-<%@ page import="nvb.dev.busticketreservation.service.impl.UserServiceImpl" %>
-<%@ page import="nvb.dev.busticketreservation.entity.User" %>
-<%@ page import="java.util.Optional" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
