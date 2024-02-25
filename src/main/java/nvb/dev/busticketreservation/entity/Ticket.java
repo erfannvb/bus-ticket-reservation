@@ -8,6 +8,7 @@ import nvb.dev.busticketreservation.base.entity.BaseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.UUID;
 
 @Entity
@@ -41,10 +42,8 @@ public class Ticket extends BaseEntity<Long> {
     @Column(name = "move_time", nullable = false)
     private LocalDateTime moveTime;
 
-    @NotNull(message = "travelId cannot be null")
-    @NotEmpty(message = "travelId cannot be empty")
-    @Column(name = "travel_id", nullable = false, unique = true)
-    private String travelId;
+    @Column(name = "travel_id", nullable = false)
+    private Integer travelId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -57,6 +56,6 @@ public class Ticket extends BaseEntity<Long> {
         this.destination = destination;
         this.moveDate = moveDate;
         this.moveTime = moveTime;
-        this.travelId = UUID.randomUUID().toString();
+        this.travelId = new Random().nextInt(900) + 100;
     }
 }
