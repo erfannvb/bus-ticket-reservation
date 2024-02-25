@@ -44,7 +44,7 @@ public class Ticket extends BaseEntity<Long> {
     @Temporal(TemporalType.TIME)
     private LocalTime moveTime;
 
-    @Column(name = "travel_code", nullable = false)
+    @Column(name = "travel_code", nullable = false, unique = true)
     private Integer travelCode;
 
     @ManyToOne(cascade = CascadeType.ALL)
