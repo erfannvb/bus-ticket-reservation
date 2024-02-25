@@ -1,3 +1,7 @@
+<%@ page import="nvb.dev.busticketreservation.entity.User" %>
+<%
+    User currentUser = (User) session.getAttribute("currentUser");
+%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +41,22 @@
                     Get ready to embark on seamless journeys with RideEasy! Explore destinations, reserve seats, and
                     travel stress-free with our user-friendly platform.
                 </p>
+
+                <%
+                    if (currentUser == null) {%>
+
                 <a class="btn btn-primary btn-lg" href="login.jsp">Get Started</a>
+
+                <%
+                    } else {
+                %>
+
+                <a class="btn btn-primary btn-lg" href="homePage.jsp">Home Page</a>
+
+                <%
+                    }
+                %>
+
             </div>
             <a href="#">
                 <img src="img/bus-main.png" alt="Bus" class="img-fluid" width="512">
