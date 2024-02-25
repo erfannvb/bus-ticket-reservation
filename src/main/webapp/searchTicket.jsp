@@ -119,8 +119,8 @@
                     <td style="text-align: center"><c:out value="${ticket.moveDate}"/></td>
                     <td style="text-align: center"><c:out value="${ticket.moveTime}"/></td>
                     <td style="text-align: center"><c:out value="${ticket.travelCode}"/></td>
-                    <td style="text-align: center"><a class="btn btn-outline-primary"
-                                                      href="bookTicket.jsp?id=${ticket.user.id}">Select</a></td>
+                    <td style="text-align: center"><a class="btn btn-outline-primary" href="bookTicket.jsp">Select</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
