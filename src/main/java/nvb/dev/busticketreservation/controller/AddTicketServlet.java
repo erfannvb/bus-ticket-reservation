@@ -51,18 +51,18 @@ public class AddTicketServlet extends HttpServlet {
             LocalDate moveDate = LocalDate.parse(req.getParameter("moveDate"));
             LocalTime moveTime = LocalTime.parse(req.getParameter("moveTime"));
 
-            LocalDateTime moveDateTime = LocalDateTime.of(moveDate, moveTime);
-
             String username = ((User) httpSession.getAttribute("currentUser")).getUsername();
 
             Optional<User> userOptional = userService.findUserByUsername(username);
             if (userOptional.isPresent()) {
                 User currentUser = userOptional.get();
 
-                Ticket ticket = new Ticket(ticketOwner, start, destination, moveDate, moveDateTime);
+                Ticket ticket = new Ticket(ticketOwner, start, destination, moveDate, moveTime);
                 ticket.setUser(currentUser);
 
                 ticketService.save(ticket);
+
+                httpSession.setAttribute("ticket", ticket);
 
                 httpSession.setAttribute("message", "Ticket Added Successfully!");
                 resp.sendRedirect(ADD_TICKET_URL);
