@@ -99,6 +99,9 @@
     request.setAttribute("ticketList", ticketList);
 %>
 
+<jsp:include page="components/ok_message.jsp"/>
+<jsp:include page="components/error_message.jsp"/>
+
 <div class="container w-75 mt-5 p-3">
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
