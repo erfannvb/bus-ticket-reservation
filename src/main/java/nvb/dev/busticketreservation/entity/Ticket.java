@@ -47,7 +47,7 @@ public class Ticket extends BaseEntity<Long> {
     @Column(name = "travel_code", nullable = false, unique = true)
     private Integer travelCode;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
