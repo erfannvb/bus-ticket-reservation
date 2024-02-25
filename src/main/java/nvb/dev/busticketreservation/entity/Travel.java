@@ -26,9 +26,11 @@ public class Travel extends BaseEntity<Long> {
     private String destination;
 
     @Column(name = "move_date")
+    @Temporal(TemporalType.DATE)
     private LocalDate moveDate;
 
     @Column(name = "move_time")
+    @Temporal(TemporalType.TIME)
     private LocalTime moveTime;
 
     @Column(name = "gender")
