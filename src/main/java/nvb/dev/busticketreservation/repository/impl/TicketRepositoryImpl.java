@@ -26,7 +26,7 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Long, Ticket> imple
 
     @Override
     public List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate moveDate) {
-        String hql = "from Ticket where start =: start and destination =: destination and moveDate =: moveDate";
+        String hql = "from Ticket where start =: start and destination =: destination and moveDate =: moveDate order by moveTime";
         TypedQuery<Ticket> ticketTypedQuery = entityManager.createQuery(hql, Ticket.class);
         ticketTypedQuery.setParameter("start", start);
         ticketTypedQuery.setParameter("destination", destination);
