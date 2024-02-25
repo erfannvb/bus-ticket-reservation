@@ -30,13 +30,24 @@ public class SearchServlet extends HttpServlet {
 
         HttpSession httpSession = req.getSession();
 
-        String start = req.getParameter("start");
-        String destination = req.getParameter("destination");
-        LocalDate moveDate = LocalDate.parse(req.getParameter("moveDate"));
+        try {
 
-        List<Ticket> ticketList = ticketService.findTicketByStartAndDestinationAndMoveDate(start, destination, moveDate);
+            String start = req.getParameter("start");
+            String destination = req.getParameter("destination");
+            LocalDate moveDate = LocalDate.parse(req.getParameter("moveDate"));
 
-        httpSession.setAttribute("ticketList", ticketList);
+            List<Ticket> ticketList = ticketService.findTicketByStartAndDestinationAndMoveDate(start, destination, moveDate);
+
+            if (!ticketList.isEmpty()) {
+                httpSession.setAttribute("ticketList", ticketList);
+                httpSession.setAttribute("message", "Tickets found successfully!");
+            } else {
+                httpSession.setAttribute("error", "No tickets found.");
+            }
+
+        } catch (Exception e) {
+            httpSession.setAttribute("error", "Please fill in the fields.");
+        }
 
     }
 }
