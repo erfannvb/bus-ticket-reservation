@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4 offset-md-4">
-            <div class="card mt-3">
+            <div class="card mt-5">
                 <jsp:include page="components/ok_message.jsp"/>
                 <jsp:include page="components/error_message.jsp"/>
                 <div class="card-header text-center fs-4"><h3>Login</h3></div>
