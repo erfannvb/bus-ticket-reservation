@@ -8,6 +8,7 @@ import nvb.dev.busticketreservation.base.entity.BaseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Random;
 import java.util.UUID;
 
@@ -40,7 +41,8 @@ public class Ticket extends BaseEntity<Long> {
     private LocalDate moveDate;
 
     @Column(name = "move_time", nullable = false)
-    private LocalDateTime moveTime;
+    @Temporal(TemporalType.TIME)
+    private LocalTime moveTime;
 
     @Column(name = "travel_code", nullable = false)
     private Integer travelCode;
@@ -50,7 +52,7 @@ public class Ticket extends BaseEntity<Long> {
     private User user;
 
     public Ticket(String ticketOwner, String start, String destination,
-                  LocalDate moveDate, LocalDateTime moveTime) {
+                  LocalDate moveDate, LocalTime moveTime) {
         this.ticketOwner = ticketOwner;
         this.start = start;
         this.destination = destination;
