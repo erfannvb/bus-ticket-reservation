@@ -1,3 +1,11 @@
+<%@ page import="jakarta.persistence.EntityManager" %>
+<%@ page import="nvb.dev.busticketreservation.base.repository.util.HibernateUtil" %>
+<%@ page import="nvb.dev.busticketreservation.repository.TicketRepository" %>
+<%@ page import="nvb.dev.busticketreservation.repository.impl.TicketRepositoryImpl" %>
+<%@ page import="nvb.dev.busticketreservation.service.TicketService" %>
+<%@ page import="nvb.dev.busticketreservation.service.impl.TicketServiceImpl" %>
+<%@ page import="nvb.dev.busticketreservation.entity.Ticket" %>
+<%@ page import="java.util.Optional" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -19,7 +27,12 @@
                 <jsp:include page="components/error_message.jsp"/>
                 <div class="card-header text-center fs-4"><h3>Book Ticket</h3></div>
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="confirmTicket" method="post">
+                        <input type="hidden" name="start" value="<%= request.getParameter("start") %>">
+                        <input type="hidden" name="destination" value="<%= request.getParameter("destination") %>">
+                        <input type="hidden" name="moveDate" value="<%= request.getParameter("moveDate") %>">
+                        <input type="hidden" name="moveTime" value="<%= request.getParameter("moveTime") %>">
+                        <input type="hidden" name="travelCode" value="<%= request.getParameter("travelCode") %>">
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Full Name</label>
                             <input type="text" class="form-control" id="fullName" name="fullName"
