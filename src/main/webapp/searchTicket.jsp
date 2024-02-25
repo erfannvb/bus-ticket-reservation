@@ -110,7 +110,7 @@
                 <th style="text-align: center">Path</th>
                 <th style="text-align: center">Move Date</th>
                 <th style="text-align: center">Move Time</th>
-                <th style="text-align: center">Travel ID</th>
+                <th style="text-align: center">Travel Code</th>
                 <th style="text-align: center"></th>
             </tr>
             <c:forEach items="${ticketList}" var="ticket">
@@ -119,7 +119,8 @@
                     <td style="text-align: center"><c:out value="${ticket.moveDate}"/></td>
                     <td style="text-align: center"><c:out value="${ticket.moveTime}"/></td>
                     <td style="text-align: center"><c:out value="${ticket.travelCode}"/></td>
-                    <td style="text-align: center"><a class="btn btn-outline-primary" href="bookTicket.jsp">Select</a>
+                    <td style="text-align: center"><a class="btn btn-outline-primary"
+                                                      href="bookTicket.jsp?start=${ticket.start}&destination=${ticket.destination}&moveDate=${ticket.moveDate}&moveTime=${ticket.moveTime}&travelCode=${ticket.travelCode}">Select</a>
                     </td>
                 </tr>
             </c:forEach>
