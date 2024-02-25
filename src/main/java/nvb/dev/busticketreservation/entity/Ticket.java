@@ -42,8 +42,8 @@ public class Ticket extends BaseEntity<Long> {
     @Column(name = "move_time", nullable = false)
     private LocalDateTime moveTime;
 
-    @Column(name = "travel_id", nullable = false)
-    private Integer travelId;
+    @Column(name = "travel_code", nullable = false)
+    private Integer travelCode;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -56,6 +56,6 @@ public class Ticket extends BaseEntity<Long> {
         this.destination = destination;
         this.moveDate = moveDate;
         this.moveTime = moveTime;
-        this.travelId = new Random().nextInt(900) + 100;
+        this.travelCode = new Random().nextInt(900) + 100;
     }
 }
