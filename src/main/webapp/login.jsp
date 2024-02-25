@@ -35,7 +35,8 @@
                             <button type="reset" class="btn btn-danger">Reset</button>
                         </div>
                         <div class="mt-3 text-center">
-                            <p>Not a member? <a id="signUpLink" href="register.jsp">Sign Up</a></p>
+                            <p>Not a member? <a id="signUpLink" href="register.jsp" style="text-decoration: none">Sign
+                                Up</a></p>
                         </div>
                     </form>
                 </div>
