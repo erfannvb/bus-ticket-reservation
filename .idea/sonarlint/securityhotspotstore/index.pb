@@ -285,3 +285,19 @@ G.idea/sonarlint/issuestore/c/2/c26edc64c7d81d33f117426f266a3c6482e57731,3\b\3b
 Q.idea/sonarlint/securityhotspotstore/4/a/4ac1eec6843e719e8d8666036a892972a2aa92fb,8\b\8bd97336f80061e582624188560d9e31e511dd81
 w
 G.idea/sonarlint/issuestore/3/6/36f4a0ae96fea75fc1c85fd324dcc8716979c452,f\4\f4461030a686667c7e2c0db19a5eed3bc9b01dfa
+m
+=src/main/java/nvb/dev/busticketreservation/entity/Travel.java,3\7\37210f7eb5b463ec38eabb939a7d4d28fe16a488
+{
+Ksrc/main/java/nvb/dev/busticketreservation/repository/TravelRepository.java,a\4\a411655e5944f91237e9f66fc1f806a0ed8ff00a
+„
+Tsrc/main/java/nvb/dev/busticketreservation/repository/impl/TravelRepositoryImpl.java,3\f\3ffe3fe55b6829e707e30e56fb9226799ef01f77
+u
+Esrc/main/java/nvb/dev/busticketreservation/service/TravelService.java,a\8\a8e07ab4fc7dbadc74e9dcf6d783b2bf65530145
+~
+Nsrc/main/java/nvb/dev/busticketreservation/service/impl/TravelServiceImpl.java,a\4\a498c95c0cd3c666582f3116c253b635c3d392ed
+
+Osrc/main/java/nvb/dev/busticketreservation/controller/ConfirmTicketServlet.java,3\2\3297e042909e1e0fc464622a84665745ee8d4c8d
+P
+ src/main/webapp/BoughtTicket.jsp,5\7\572d9c2541026247d77664ce58c05bfae3089d75
+P
+ src/main/webapp/boughtTicket.jsp,7\1\71495579aa9648fdc2379bded1a0d636155d9838

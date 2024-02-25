@@ -31,6 +31,7 @@
                     Effortless bus ticket booking: Find, select, and reserve instantly!
                 </p>
                 <a class="btn btn-primary btn-lg" href="searchTicket.jsp">Search Ticket</a>
+                <a class="btn btn-success btn-lg" href="boughtTicket.jsp">Bought Tickets</a>
             </div>
             <a href="#">
                 <img src="img/bus.png" alt="Bus" class="img-fluid" width="512">
