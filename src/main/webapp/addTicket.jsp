@@ -1,15 +1,21 @@
 <%@ page import="nvb.dev.busticketreservation.entity.User" %>
 <%
-    User currentUser = (User) session.getAttribute("currentUser");
-%>
 
+    User currentUser = (User) session.getAttribute("currentUser");
+    if (currentUser == null) {
+        session.setAttribute("error", "You are not logged-in! Login first.");
+        response.sendRedirect("/login.jsp");
+        return;
+    }
+
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book Ticket</title>
+    <title>Add Ticket</title>
     <jsp:include page="components/common_css_js.jsp"/>
 </head>
 <body style="background-color: darkgrey">
@@ -22,13 +28,12 @@
             <div class="card mt-3">
                 <jsp:include page="components/ok_message.jsp"/>
                 <jsp:include page="components/error_message.jsp"/>
-                <div class="card-header text-center fs-4"><h3>Booking Ticket</h3></div>
+                <div class="card-header text-center fs-4"><h3>Adding Ticket</h3></div>
                 <div class="card-body">
-                    <form action="bookTicket" method="post">
+                    <form action="addTicket" method="post">
                         <div class="mb-3">
-                            <label for="ticketOwner" class="form-label">Ticket Owner</label>
-                            <input type="text" class="form-control" id="ticketOwner" name="ticketOwner"
-                                   value=" <%= currentUser.getUsername() %>" readonly>
+                            <input type="hidden" class="form-control" id="ticketOwner" name="ticketOwner"
+                                   value=" <%= currentUser.getUsername() %>">
                         </div>
                         <div class="mb-3">
                             <label for="start" class="form-label">Start</label>
@@ -49,7 +54,7 @@
                             <input type="time" class="form-control" id="moveTime" name="moveTime" required>
                         </div>
                         <div class="container text-center">
-                            <button type="submit" class="btn btn-outline-success">Book</button>
+                            <button type="submit" class="btn btn-outline-success">Add</button>
                             <button type="reset" class="btn btn-outline-danger">Reset</button>
                         </div>
                     </form>
