@@ -62,7 +62,11 @@ public class AddTicketServlet extends HttpServlet {
 
                 ticketService.save(ticket);
 
-                httpSession.setAttribute("ticket", ticket);
+                httpSession.setAttribute("start", start);
+                httpSession.setAttribute("destination", destination);
+                httpSession.setAttribute("moveDate", moveDate);
+                httpSession.setAttribute("moveTime", moveTime);
+                httpSession.setAttribute("travelCode", ticket.getTravelCode());
 
                 httpSession.setAttribute("message", "Ticket Added Successfully!");
                 resp.sendRedirect(ADD_TICKET_URL);
