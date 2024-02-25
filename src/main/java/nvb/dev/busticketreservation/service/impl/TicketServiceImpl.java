@@ -12,6 +12,8 @@ import nvb.dev.busticketreservation.repository.TicketRepository;
 import nvb.dev.busticketreservation.service.TicketService;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 public class TicketServiceImpl extends BaseServiceImpl<Long, Ticket, TicketRepository> implements TicketService {
@@ -49,5 +51,10 @@ public class TicketServiceImpl extends BaseServiceImpl<Long, Ticket, TicketRepos
             e.getStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate moveDate) {
+        return repository.findTicketByStartAndDestinationAndMoveDate(start, destination, moveDate);
     }
 }
