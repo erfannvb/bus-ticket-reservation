@@ -40,4 +40,8 @@ public class Travel extends BaseEntity<Long> {
     @Column(name = "travel_code")
     private Integer travelCode;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
 }

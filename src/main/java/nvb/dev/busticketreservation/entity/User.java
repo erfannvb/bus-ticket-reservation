@@ -42,8 +42,11 @@ public class User extends BaseEntity<Long> {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     private Set<Ticket> ticketSet = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<Travel> travelSet = new HashSet<>();
 
     public User(String firstName, String lastName, String username, String password, Gender gender) {
         this.firstName = firstName;
