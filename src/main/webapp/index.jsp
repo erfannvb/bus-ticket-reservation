@@ -6,12 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main Page</title>
     <jsp:include page="components/common_css_js.jsp"/>
+    <style>
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .full-screen {
+            height: 100%;
+        }
+
+    </style>
 </head>
-<body style="overflow: hidden">
+<body>
 
 <jsp:include page="components/navbar.jsp"/>
 
-<section class="bg-dark text-light p-5 text-center text-sm-start">
+<section class="bg-dark text-light p-5 text-center text-sm-start full-screen">
     <div class="container py-5">
         <div class="d-sm-flex align-items-center justify-content-between py-2">
             <div>
