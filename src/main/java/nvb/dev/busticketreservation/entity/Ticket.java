@@ -38,11 +38,11 @@ public class Ticket extends BaseEntity<Long> {
 
     @Column(name = "move_date", nullable = false)
     @Temporal(TemporalType.DATE)
-    private LocalDate moveDate;
+    private LocalDate date;
 
     @Column(name = "move_time", nullable = false)
     @Temporal(TemporalType.TIME)
-    private LocalTime moveTime;
+    private LocalTime time;
 
     @Column(name = "travel_code", nullable = false, unique = true)
     private Integer travelCode;
@@ -51,13 +51,12 @@ public class Ticket extends BaseEntity<Long> {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    public Ticket(String ticketOwner, String start, String destination,
-                  LocalDate moveDate, LocalTime moveTime) {
+    public Ticket(String ticketOwner, String start, String destination, LocalDate date, LocalTime time) {
         this.ticketOwner = ticketOwner;
         this.start = start;
         this.destination = destination;
-        this.moveDate = moveDate;
-        this.moveTime = moveTime;
+        this.date = date;
+        this.time = time;
         this.travelCode = new Random().nextInt(900) + 100;
     }
 }
