@@ -27,11 +27,11 @@ public class Travel extends BaseEntity<Long> {
 
     @Column(name = "move_date")
     @Temporal(TemporalType.DATE)
-    private LocalDate moveDate;
+    private LocalDate date;
 
     @Column(name = "move_time")
     @Temporal(TemporalType.TIME)
-    private LocalTime moveTime;
+    private LocalTime time;
 
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
