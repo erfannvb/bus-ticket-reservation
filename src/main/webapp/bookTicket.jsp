@@ -1,11 +1,3 @@
-<%@ page import="jakarta.persistence.EntityManager" %>
-<%@ page import="nvb.dev.busticketreservation.base.repository.util.HibernateUtil" %>
-<%@ page import="nvb.dev.busticketreservation.repository.TicketRepository" %>
-<%@ page import="nvb.dev.busticketreservation.repository.impl.TicketRepositoryImpl" %>
-<%@ page import="nvb.dev.busticketreservation.service.TicketService" %>
-<%@ page import="nvb.dev.busticketreservation.service.impl.TicketServiceImpl" %>
-<%@ page import="nvb.dev.busticketreservation.entity.Ticket" %>
-<%@ page import="java.util.Optional" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -39,7 +31,7 @@
                                    placeholder="Enter your full name..." required>
                         </div>
                         <div class="mt-3 mb-3">
-                            <label class="form-label my-3 mx-2">Gender : </label>
+                            <label class="form-label my-3 mx-2">Gender</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="gender"
                                        id="maleRadioOption" value="MALE">
