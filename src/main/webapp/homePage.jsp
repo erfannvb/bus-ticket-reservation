@@ -22,6 +22,9 @@
 
 <jsp:include page="components/navbar.jsp"/>
 
+<jsp:include page="components/ok_message.jsp"/>
+<jsp:include page="components/error_message.jsp"/>
+
 <section class="bg-dark text-light p-5 text-center text-sm-start">
     <div class="container py-5">
         <div class="d-sm-flex align-items-center justify-content-between py-2">
