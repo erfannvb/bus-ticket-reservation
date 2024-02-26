@@ -59,9 +59,10 @@
             </tr>
             <c:forEach items="${travelList}" var="travel">
                 <tr>
-                    <td style="text-align: center"><c:out value="${travel.moveDate}"/></td>
+                    <td style="text-align: center"><c:out value="${travel.date}"/></td>
                     <td style="text-align: center"><c:out value="${travel.travelCode}"/></td>
-                    <td style="text-align: center"><a class="btn btn-outline-primary" href="#">View</a>
+                    <td style="text-align: center"><a class="btn btn-outline-primary"
+                                                      href="viewTicket.jsp?id=${travel.id}">View</a>
                 </tr>
             </c:forEach>
         </table>
