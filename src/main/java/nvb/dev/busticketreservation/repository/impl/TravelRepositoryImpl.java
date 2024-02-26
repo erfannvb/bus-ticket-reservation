@@ -1,6 +1,7 @@
 package nvb.dev.busticketreservation.repository.impl;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import nvb.dev.busticketreservation.base.repository.impl.BaseRepositoryImpl;
 import nvb.dev.busticketreservation.entity.Travel;
@@ -28,5 +29,13 @@ public class TravelRepositoryImpl extends BaseRepositoryImpl<Long, Travel> imple
         TypedQuery<Travel> travelTypedQuery = entityManager.createQuery(hql, Travel.class);
         travelTypedQuery.setParameter("userId", userId);
         return travelTypedQuery.getResultList();
+    }
+
+    @Override
+    public void deleteTravelById(long travelId) {
+        String hql = "delete from Travel where id =: travelId";
+        Query query = entityManager.createQuery(hql);
+        query.setParameter("travelId", travelId);
+        query.executeUpdate();
     }
 }

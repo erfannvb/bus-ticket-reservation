@@ -9,4 +9,6 @@ public interface TravelService extends BaseService<Long, Travel> {
 
     List<Travel> findTravelByUserId(long userId);
 
+    void deleteTravelById(long travelId);
+
 }

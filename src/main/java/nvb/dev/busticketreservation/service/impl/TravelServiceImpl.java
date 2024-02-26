@@ -21,4 +21,9 @@ public class TravelServiceImpl extends BaseServiceImpl<Long, Travel, TravelRepos
     public List<Travel> findTravelByUserId(long userId) {
         return repository.findTravelByUserId(userId);
     }
+
+    @Override
+    public void deleteTravelById(long travelId) {
+        repository.deleteTravelById(travelId);
+    }
 }

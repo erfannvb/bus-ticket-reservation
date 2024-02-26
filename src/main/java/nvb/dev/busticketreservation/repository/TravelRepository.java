@@ -9,4 +9,6 @@ public interface TravelRepository extends BaseRepository<Long, Travel> {
 
     List<Travel> findTravelByUserId(long userId);
 
+    void deleteTravelById(long travelId);
+
 }
