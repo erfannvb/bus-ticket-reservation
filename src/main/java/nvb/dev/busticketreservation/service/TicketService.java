@@ -10,6 +10,6 @@ public interface TicketService extends BaseService<Long, Ticket> {
 
     boolean validate(Ticket ticket);
 
-    List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate moveDate);
+    List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate date);
 
 }

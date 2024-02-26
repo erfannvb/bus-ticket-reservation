@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface TicketRepository extends BaseRepository<Long, Ticket> {
 
-    List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate moveDate);
+    List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate date);
 
 }

@@ -54,7 +54,7 @@ public class TicketServiceImpl extends BaseServiceImpl<Long, Ticket, TicketRepos
     }
 
     @Override
-    public List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate moveDate) {
-        return repository.findTicketByStartAndDestinationAndMoveDate(start, destination, moveDate);
+    public List<Ticket> findTicketByStartAndDestinationAndMoveDate(String start, String destination, LocalDate date) {
+        return repository.findTicketByStartAndDestinationAndMoveDate(start, destination, date);
     }
 }
