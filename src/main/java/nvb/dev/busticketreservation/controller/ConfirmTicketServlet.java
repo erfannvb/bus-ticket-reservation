@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import nvb.dev.busticketreservation.base.repository.util.HibernateUtil;
 import nvb.dev.busticketreservation.entity.Gender;
-import nvb.dev.busticketreservation.entity.Ticket;
 import nvb.dev.busticketreservation.entity.Travel;
 import nvb.dev.busticketreservation.entity.User;
 import nvb.dev.busticketreservation.repository.TravelRepository;
@@ -24,7 +23,6 @@ import nvb.dev.busticketreservation.service.impl.UserServiceImpl;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 import java.util.Optional;
 
 @WebServlet(name = "ConfirmTicketServlet", urlPatterns = "/confirmTicket")
@@ -67,8 +65,8 @@ public class ConfirmTicketServlet extends HttpServlet {
                 travel.setFullName(fullName);
                 travel.setStart(start);
                 travel.setDestination(destination);
-                travel.setMoveDate(moveDate);
-                travel.setMoveTime(moveTime);
+                travel.setDate(moveDate);
+                travel.setTime(moveTime);
                 travel.setGender(gender);
                 travel.setTravelCode(travelCode);
                 travel.setUser(currentUser);
