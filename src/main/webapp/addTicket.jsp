@@ -46,11 +46,11 @@
                                    placeholder="Enter your destination..." required>
                         </div>
                         <div class="mb-3">
-                            <label for="moveDate" class="form-label">Move Date</label>
+                            <label for="moveDate" class="form-label">Date</label>
                             <input type="date" class="form-control" id="moveDate" name="moveDate" required>
                         </div>
                         <div class="mb-3">
-                            <label for="moveTime" class="form-label">Move Time</label>
+                            <label for="moveTime" class="form-label">Time</label>
                             <input type="time" class="form-control" id="moveTime" name="moveTime" required>
                         </div>
                         <div class="container text-center">
