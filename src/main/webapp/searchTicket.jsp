@@ -1,12 +1,5 @@
 <%@ page import="nvb.dev.busticketreservation.entity.Ticket" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="jakarta.persistence.EntityManager" %>
-<%@ page import="nvb.dev.busticketreservation.base.repository.util.HibernateUtil" %>
-<%@ page import="nvb.dev.busticketreservation.repository.TicketRepository" %>
-<%@ page import="nvb.dev.busticketreservation.repository.impl.TicketRepositoryImpl" %>
-<%@ page import="nvb.dev.busticketreservation.service.TicketService" %>
-<%@ page import="nvb.dev.busticketreservation.service.impl.TicketServiceImpl" %>
 <%@ page import="nvb.dev.busticketreservation.entity.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -50,7 +43,7 @@
                             <input type="text" class="form-control" id="destination" name="destination">
                         </div>
                         <div class="col-md-4">
-                            <label for="moveDate" class="form-label">Move Date</label>
+                            <label for="moveDate" class="form-label">Date</label>
                             <input type="date" class="form-control" id="moveDate" name="moveDate">
                         </div>
                         <div class="container text-center col-12 mt-3">
@@ -108,19 +101,19 @@
             <caption class="text-white">Available Tickets</caption>
             <tr>
                 <th style="text-align: center">Path</th>
-                <th style="text-align: center">Move Date</th>
-                <th style="text-align: center">Move Time</th>
+                <th style="text-align: center">Date</th>
+                <th style="text-align: center">Time</th>
                 <th style="text-align: center">Travel Code</th>
                 <th style="text-align: center"></th>
             </tr>
             <c:forEach items="${ticketList}" var="ticket">
                 <tr>
                     <td style="text-align: center"><c:out value="${ticket.start} - ${ticket.destination}"/></td>
-                    <td style="text-align: center"><c:out value="${ticket.moveDate}"/></td>
-                    <td style="text-align: center"><c:out value="${ticket.moveTime}"/></td>
+                    <td style="text-align: center"><c:out value="${ticket.date}"/></td>
+                    <td style="text-align: center"><c:out value="${ticket.time}"/></td>
                     <td style="text-align: center"><c:out value="${ticket.travelCode}"/></td>
                     <td style="text-align: center"><a class="btn btn-outline-primary"
-                                                      href="bookTicket.jsp?start=${ticket.start}&destination=${ticket.destination}&moveDate=${ticket.moveDate}&moveTime=${ticket.moveTime}&travelCode=${ticket.travelCode}">Select</a>
+                                                      href="bookTicket.jsp?start=${ticket.start}&destination=${ticket.destination}&moveDate=${ticket.date}&moveTime=${ticket.time}&travelCode=${ticket.travelCode}">Select</a>
                     </td>
                 </tr>
             </c:forEach>
