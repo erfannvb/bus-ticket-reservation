@@ -1,0 +1,13 @@
+
+Q
+java:S1948 "/Make "entityManager" transient or serializable.(¤ÌÇøûÿÿÿÿ8í†—‚Ş1
+O
+java:S1948""2Make "ticketRepository" transient or serializable.(ùçıá8î†—‚Ş1
+L
+java:S1948#"/Make "ticketService" transient or serializable.(ï‘Ãç8î†—‚Ş1
+R
+java:S1948%"0Make "userRepository" transient or serializable.(¼Ì¾ùúÿÿÿÿ8î†—‚Ş1
+J
+java:S1948&"-Make "userService" transient or serializable.(ŒÏ‘Š8ï†—‚Ş1
+~
+java:S1989O"aHandle the following exceptions that could be thrown by "include": ServletException, IOException.(±½í8ù†—‚Ş1
