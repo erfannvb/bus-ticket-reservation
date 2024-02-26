@@ -97,7 +97,7 @@
 
 <div class="container w-75 mt-5 p-3">
     <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover" id="search-table">
             <caption class="text-white">Available Tickets</caption>
             <tr>
                 <th style="text-align: center">Path</th>
@@ -118,8 +118,21 @@
                 </tr>
             </c:forEach>
         </table>
+        <div class="text-center">
+            <button type="button" class="btn btn-danger" id="clear-btn">Clear the Table</button>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $(document).ready(() => {
+        $('#clear-btn').click(() => {
+            $('#search-table td').empty();
+        });
+    });
+
+</script>
 
 </body>
 </html>
